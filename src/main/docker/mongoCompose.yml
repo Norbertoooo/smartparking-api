@@ -1,0 +1,12 @@
+version: "3"
+services:
+  smartparking-mongodb:
+    container_name: smartparking-mongodb
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongodb
+      MONGO_INITDB_ROOT_PASSWORD: mongodb
+    volumes:
+      - "/tmp/database:/var/lib/mongodb/data"
+    ports:
+      - "27017:27017"

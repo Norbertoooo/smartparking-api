@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: smartparking-api
+
+  profiles:
+    active: dev
+
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+    add-properties: false
+
+logging:
+  level:
+    web: DEBUG
