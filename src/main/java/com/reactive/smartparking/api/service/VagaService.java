@@ -8,10 +8,13 @@ public interface VagaService {
     Flux<Vaga> findAll();
     Mono<Vaga> findById(String id);
     Flux<Vaga> findAllByNome(String nome);
-    Mono<Vaga> save(Vaga vaga);
+    Mono<Vaga> saveOne(Vaga vaga);
+    Flux<Vaga> saveMany(Flux<Vaga> vagas);
     Mono<Void> deleteAll();
     Flux<Vaga> vagasOcupadas();
-    Flux<Object> listaDeNomesDeVagasRegistradas();
-    Flux<Object> estadoAtual();
     Mono<Vaga> estadoAtualPorVaga(String vaga);
+
+    // TODO: 30/05/2020 converter Flux<Object> to Flux<Vaga>
+    Flux<Object> listaDeNomesDeVagasRegistradas();
+    Flux<Object> estadoAtualDeCadaVaga();
 }

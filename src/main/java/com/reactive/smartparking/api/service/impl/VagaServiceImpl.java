@@ -32,8 +32,13 @@ public class VagaServiceImpl implements VagaService {
     }
 
     @Override
-    public Mono<Vaga> save(Vaga vaga) {
+    public Mono<Vaga> saveOne(Vaga vaga) {
         return vagaRepository.save(vaga);
+    }
+
+    @Override
+    public Flux<Vaga> saveMany(Flux<Vaga> vagas) {
+        return vagaRepository.saveAll(vagas);
     }
 
     @Override
@@ -52,7 +57,7 @@ public class VagaServiceImpl implements VagaService {
     }
 
     @Override
-    public Flux<Object> estadoAtual() {
+    public Flux<Object> estadoAtualDeCadaVaga() {
         return vagaRepository.findAll().distinct(Vaga::getNome).flatMap(vaga -> (estadoAtualPorVaga(vaga.getNome())));
     }
 

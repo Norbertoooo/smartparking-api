@@ -47,7 +47,7 @@ public class VagaController {
 
     @GetMapping("/estado/atual")
     private Flux<Object> listarEstadosAtuais() {
-        return vagaService.estadoAtual();
+        return vagaService.estadoAtualDeCadaVaga();
     }
 
     @GetMapping("/estado/atual/{nome}")
@@ -58,7 +58,13 @@ public class VagaController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     private Mono<Vaga> salvarVaga(@Valid @RequestBody Vaga vaga) {
-        return vagaService.save(vaga);
+        return vagaService.saveOne(vaga);
+    }
+
+    @PostMapping("/lista-de-vagas")
+    @ResponseStatus(HttpStatus.CREATED)
+    private Flux<Vaga> salvarVagas(@Valid @RequestBody Flux<Vaga> vagas) {
+        return vagaService.saveMany(vagas);
     }
 
     @DeleteMapping
