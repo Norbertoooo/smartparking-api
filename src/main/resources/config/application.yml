@@ -6,7 +6,7 @@ spring:
     name: smartparking-api
 
   profiles:
-    active: dev
+    active: prod
 
   devtools:
     restart:
