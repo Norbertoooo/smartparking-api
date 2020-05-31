@@ -15,7 +15,7 @@
     <description>Smartparking api with Spring Boot, Spring Web Flux and Embed MongoDB</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <scope-embed-mongo>test</scope-embed-mongo>
     </properties>
 
