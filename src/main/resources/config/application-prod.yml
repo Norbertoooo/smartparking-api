@@ -1,3 +1,9 @@
 logging:
   level:
     web: info
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      uri: mongodb+srv://admin:admin@smartparking-bzlwo.azure.mongodb.net/smartparking-api?retryWrites=true&w=majority
