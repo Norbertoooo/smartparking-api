@@ -47,11 +47,6 @@ public class VagaServiceImpl implements VagaService {
     }
 
     @Override
-    public Flux<Vaga> vagasOcupadas() {
-        return vagaRepository.findVagasByEstadoIsTrueOrderByDataAsc().distinct(Vaga::getNome);
-    }
-
-    @Override
     public Flux<Object> listaDeNomesDeVagasRegistradas() {
         return vagaRepository.findAll().distinct(Vaga::getNome).map(Vaga::getNome);
     }

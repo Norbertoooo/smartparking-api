@@ -11,7 +11,6 @@ public interface VagaService {
     Mono<Vaga> saveOne(Vaga vaga);
     Flux<Vaga> saveMany(Flux<Vaga> vagas);
     Mono<Void> deleteAll();
-    Flux<Vaga> vagasOcupadas();
     Mono<Vaga> estadoAtualPorVaga(String vaga);
 
     // TODO: 30/05/2020 converter Flux<Object> to Flux<Vaga>
