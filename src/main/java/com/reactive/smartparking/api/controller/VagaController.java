@@ -40,12 +40,12 @@ public class VagaController {
         return vagaService.listaDeNomesDeVagasRegistradas();
     }
 
-    @GetMapping("/estado")
+    @GetMapping("/status")
     private Flux<Object> listarTodosEstadosAtuais() {
         return vagaService.estadoAtualDeCadaVaga();
     }
 
-    @GetMapping("/estado/{nome}")
+    @GetMapping("/status/{nome}")
     private Mono<Vaga> listarEstadoAtualDeUmaVaga(@PathVariable String nome) {
         return vagaService.estadoAtualPorVaga(nome);
     }

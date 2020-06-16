@@ -20,7 +20,7 @@ public class Vaga {
     private String nome;
 
     @NotNull(message = "Estado da vaga deve ser preenchido")
-    private boolean estado;
+    private boolean status;
 
     private String data = new Date()
             .toInstant()
