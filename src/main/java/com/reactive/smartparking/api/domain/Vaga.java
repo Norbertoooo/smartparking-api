@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
 
 @Document @NoArgsConstructor @AllArgsConstructor @Data
 public class Vaga {
@@ -20,5 +21,5 @@ public class Vaga {
 
     private StatusVaga status;
 
-    private OffsetDateTime data = OffsetDateTime.now();
+    private OffsetDateTime data = OffsetDateTime.now(ZoneId.of("UTC+03:00"));
 }
