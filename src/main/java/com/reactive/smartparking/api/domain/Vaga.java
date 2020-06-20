@@ -6,19 +6,19 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.constraints.NotNull;
-import java.util.Date;
+import javax.validation.constraints.NotBlank;
+import java.time.OffsetDateTime;
 
 @Document @NoArgsConstructor @AllArgsConstructor @Data
 public class Vaga {
+
     @Id
     private String id;
 
-    @NotNull(message = "Nome deve ser preenchido")
+    @NotBlank(message = "Nome deve ser preenchido")
     private String nome;
 
-    @NotNull(message = "Estado da vaga deve ser preenchido")
-    private boolean estado;
+    private StatusVaga status;
 
-    private Date data = new Date();
+    private OffsetDateTime data = OffsetDateTime.now();
 }

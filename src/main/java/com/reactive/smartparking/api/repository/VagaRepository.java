@@ -8,6 +8,5 @@ import reactor.core.publisher.Flux;
 @Repository
 public interface VagaRepository extends ReactiveMongoRepository<Vaga, String> {
     Flux<Vaga> findAllByNomeOrderByDataAsc(String nome);
-    Flux<Vaga> findVagasByEstadoIsTrueOrderByDataAsc();
     Flux<Vaga> findDistinctByNomeOrderByDataAsc(String nome);
 }

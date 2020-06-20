@@ -25,7 +25,7 @@ public class VagaController {
         return vagaService.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     private Mono<Vaga> buscarVagaPorId(@PathVariable String id) {
         return vagaService.findById(id);
     }
@@ -35,41 +35,36 @@ public class VagaController {
         return vagaService.findAllByNome(nome);
     }
 
-    @GetMapping("/estado")
-    private Flux<Vaga> vagasOcupadas() {
-        return vagaService.vagasOcupadas();
-    }
-
     @GetMapping("/nomes")
     private Flux<Object> listarNomes() {
         return vagaService.listaDeNomesDeVagasRegistradas();
     }
 
-    @GetMapping("/estado/atual")
-    private Flux<Object> listarEstadosAtuais() {
-        return vagaService.estadoAtualDeCadaVaga();
+    @GetMapping("/status")
+    private Flux<Object> listarTodosStatusAtuais() {
+        return vagaService.statusAtualDeCadaVaga();
     }
 
-    @GetMapping("/estado/atual/{nome}")
-    private Mono<Vaga> listarEstadoAtual(@PathVariable String nome) {
-        return vagaService.estadoAtualPorVaga(nome);
+    @GetMapping("/status/{nome}")
+    private Mono<Vaga> listarStatusAtualDeUmaVaga(@PathVariable String nome) {
+        return vagaService.statusAtualPorVaga(nome);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    private Mono<Vaga> salvarVaga(@Valid @RequestBody Vaga vaga) {
+    private Mono<Vaga> salvarUmaVaga(@Valid @RequestBody Vaga vaga) {
         return vagaService.saveOne(vaga);
     }
 
     @PostMapping("/lista-de-vagas")
     @ResponseStatus(HttpStatus.CREATED)
-    private Flux<Vaga> salvarVagas(@Valid @RequestBody Flux<Vaga> vagas) {
+    private Flux<Vaga> salvarVariasVagas(@Valid @RequestBody Flux<Vaga> vagas) {
         return vagaService.saveMany(vagas);
     }
 
     @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    private Mono<Void> deletarTodasAsVagas() {
+    private Mono<Void> deletarTudo() {
         return vagaService.deleteAll();
     }
 }
