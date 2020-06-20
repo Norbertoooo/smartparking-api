@@ -21,5 +21,5 @@ public class Vaga {
 
     private StatusVaga status;
 
-    private OffsetDateTime data = OffsetDateTime.now(ZoneId.of("UTC+03:00"));
+    private OffsetDateTime data = OffsetDateTime.now(ZoneId.of("America/Sao_Paulo"));
 }
